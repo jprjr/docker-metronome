@@ -3,8 +3,6 @@ docker-metronome
 
 This is a small [CentOS](http://www.centos.org/)-based image for [Docker](http://docker.io/), with [Metronome IM](http://www.lightwitch.org/metronome) installed.
 
- and [OpenSSL](http://www.openssl.org/) installed.
-
 This is based on CentOS 6.5 and has `metronome` as the entrypoint.
 
 It comes with a very small `metronome.cfg.lua` file, but this is meant to
