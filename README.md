@@ -1,7 +1,7 @@
 docker-metronome
 =============
 
-This is a small [CentOS](http://www.centos.org/)-based image for [Docker](http://docker.io/), with [Metronome IM](http://www.lightwitch.org/metronome) installed.
+This is a small [CentOS](http://www.centos.org/)-based image for [Docker](http://docker.io/), with [Metronome IM](http://www.lightwitch.org/metronome) (an XMPP/Jabber server) installed.
 
 This is based on CentOS 6.5 and has `metronome` as the entrypoint.
 
@@ -14,7 +14,7 @@ Neat things about this build:
 * `/opt/metronome/etc` and `/opt/metronome/var` are data volumes
 * Metronome is run as a non-privileged user
 
-This build uses the following projects:
+This build uses the following Lua packages/programs/modules:
 
 * [LuaEnv](http://github.com/cehoffman/luaenv)
 * [LuaSocket](http://github.com/diegonehab/luasocket)
