@@ -98,7 +98,7 @@ rm -rf harningt-luaevent-3ddb7c8
 #luadbi
 # metronome
 \curl -R -L -O http://github.com/maranda/metronome/archive/v${metronome_version}tar.gz
-tar xf v${metronome_version}.tar.gz
+tar xf v${metronome_version}tar.gz
 rm v${metronome_version}tar.gz
 cd metronome-${metronome_version}
 ./configure --prefix=${prefix} --datadir=/opt/metronome/var --with-lua=${prefix} --sysconfdir=/opt/metronome/etc
