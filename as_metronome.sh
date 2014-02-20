@@ -40,7 +40,7 @@ luaenv global ${lua_version}
 luaenv rehash
 
 # Install luarocks
-\curl -R -L -O http://www.luarocks.org/releases/luarocks-${luarocks_version}.tar.gz
+\curl -R -L -O http://luarocks.org/releases/luarocks-${luarocks_version}.tar.gz
 tar xf luarocks-${luarocks_version}.tar.gz
 rm luarocks-${luarocks_version}.tar.gz
 cd luarocks-${luarocks_version}
@@ -97,15 +97,15 @@ rm -rf harningt-luaevent-3ddb7c8
 #luasec
 #luadbi
 # metronome
-\curl -R -L -O http://github.com/maranda/metronome/archive/v3.3.tar.gz
-tar xf v3.3.tar.gz
-rm v3.3.tar.gz
-cd metronome-3.3
+\curl -R -L -O http://github.com/maranda/metronome/archive/v${metronome_version}tar.gz
+tar xf v${metronome_version}.tar.gz
+rm v${metronome_version}tar.gz
+cd metronome-${metronome_version}
 ./configure --prefix=${prefix} --datadir=/opt/metronome/var --with-lua=${prefix} --sysconfdir=/opt/metronome/etc
 make
 make install
 cd $HOME
-rm -rf metronome-3.3
+rm -rf metronome-${metronome_version}
 # 
 luaenv rehash
 hash -r
