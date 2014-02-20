@@ -58,10 +58,18 @@ luaenv rehash
 # luarocks doesn't look in /usr/lib64
 echo 'external_deps_subdirs = { bin = "bin", lib = "lib64", include = "include" }' >> "${prefix}/etc/luarocks/config-5.1.lua"
 
+# lua-zlib
+mkdir lua-zlib
+cd lua-zlib
+\curl -R -L -O http://raw2.github.com/jprjr/lua-zlib/master/rockspecs/lua-zlib-git/lua-zlib-git-2014.02.19-1.rockspec
+luarocks build ./lua-zlib-git-2014.02.19-1.rockspec
+cd $HOME
+rm -rf lua-zlib
+
+
 luarocks install luafilesystem
 luarocks install luasocket
 luarocks install luaexpat
-luarocks install lzlib
 luarocks install luadbi
 luarocks install luadbi-sqlite3
 luarocks install luadbi-mysql MYSQL_INCDIR=/usr/include/mysql MYSQL_LIBDIR=/usr/lib64/mysql
