@@ -23,11 +23,13 @@ RUN yum -y remove openssl-devel libevent-devel zlib-devel openldap-devel \
     keyutils-libs-devel libselinux-devel libsepol-devel \
     ncurses-devel perl ppl krb5-devel
 
-USER metronome
-ENV PATH $HOME/.luaenv/shims:$HOME/.luaenv/bin:$PATH
-
 ADD metronome.cfg.lua /opt/metronome/etc/metronome.cfg.lua
 RUN mkdir /opt/metronome/var/logs
+
+RUN chown -R metronome /opt/metronome
+
+USER metronome
+ENV PATH $HOME/.luaenv/shims:$HOME/.luaenv/bin:$PATH
 
 VOLUME ["/opt/metronome/etc"]
 VOLUME ["/opt/metronome/var"]
