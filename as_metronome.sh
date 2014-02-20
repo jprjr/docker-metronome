@@ -3,15 +3,17 @@ set -e
 set -x
 
 lua_version=5.1.5
+lua_name="luajit-"
+luajit_version=2.0.2
 luarocks_version=2.1.2
 metronome_version=3.3
 lua_major_rev=${lua_version:0:3}
 
 # now for the libraries and whatnot
-prefix=$HOME/.luaenv/versions/${lua_version}
-lua_libdir=$prefix/lib/lua/${lua_major_rev}
-lua_shrdir=$prefix/share/lua/${lua_major_rev}
-lua_incdir=$prefix/include
+prefix="$HOME/.luaenv/versions/${lua_name}${luajit_version}"
+lua_libdir="$prefix/lib/lua/${lua_major_rev}"
+lua_shrdir="$prefix/share/lua/${lua_major_rev}"
+lua_incdir="$prefix/include/luajit-2.0"
 
 cd $HOME
 
@@ -35,8 +37,8 @@ export PATH="$HOME/.luaenv/shims:$HOME/.luaenv/bin:$PATH"
 
 hash -r
 
-luaenv install ${lua_version}
-luaenv global ${lua_version}
+luaenv install luajit-${luajit_version}
+luaenv global luajit-${luajit_version}
 luaenv rehash
 
 # Install luarocks
@@ -44,7 +46,7 @@ luaenv rehash
 tar xf luarocks-${luarocks_version}.tar.gz
 rm luarocks-${luarocks_version}.tar.gz
 cd luarocks-${luarocks_version}
-./configure --prefix="${prefix}" --with-lua="${prefix}"
+./configure --prefix="${prefix}" --with-lua="${prefix}" --with-lua-include="${lua_incdir}"
 make
 make install
 
@@ -101,7 +103,7 @@ rm -rf harningt-luaevent-3ddb7c8
 tar xf v${metronome_version}.tar.gz
 rm v${metronome_version}.tar.gz
 cd metronome-${metronome_version}
-./configure --prefix=${prefix} --datadir=/opt/metronome/var --with-lua=${prefix} --sysconfdir=/opt/metronome/etc
+./configure --prefix=${prefix} --datadir=/opt/metronome/var --with-lua=${prefix} --with-lua-include=${lua_incdir} --sysconfdir=/opt/metronome/etc
 make
 make install
 cd $HOME
