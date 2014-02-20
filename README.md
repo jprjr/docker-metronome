@@ -17,10 +17,11 @@ Neat things about this build:
 This build uses the following Lua packages/programs/modules:
 
 * [LuaEnv](http://github.com/cehoffman/luaenv)
+* [LuaRocks](http://www.luarocks.org/)
 * [LuaSocket](http://github.com/diegonehab/luasocket)
 * [LuaExpat](http://matthewwild.co.uk/projects/luaexpat/)
 * [LuaEvent](http://github.com/harningt/luaevent)
-* [lua-zlib](http://github.com/brimworks/lua-zlib)
+* lzlib (Do I need to try getting [lua-zlib](http://github.com/brimworks/lua-zlib) setup via luarocks?)
 * [luafilesystem](http://github.com/keplerproject/luafilesystem)
 * [LuaSec](http://github.com/brunoos/luasec)
 * [LuaDBI](http://code.google.com/p/luadbi/), with support for MySQL, PostgreSQL, and SQLite.
