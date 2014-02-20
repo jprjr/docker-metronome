@@ -4,7 +4,7 @@ MAINTAINER John Regan <john@jrjrtech.com>
 
 RUN yum -y install openssl-devel libevent-devel zlib-devel openldap-devel \
     gcc make tar patch readline-devel expat-devel libidn-devel \
-    postgresql-devel sqlite-devel mysql-devel
+    postgresql-devel sqlite-devel mysql-devel unzip
 
 RUN useradd -r -m -d /opt/metronome -s /sbin/nologin metronome
 ADD as_metronome.sh /opt/metronome/as_metronome.sh
