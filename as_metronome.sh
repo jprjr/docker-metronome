@@ -56,13 +56,15 @@ luaenv rehash
 # luarocks doesn't look in /usr/lib64
 echo 'external_deps_subdirs = { bin = "bin", lib = "lib64", include = "include" }' >> "${prefix}/etc/luarocks/config-5.1.lua"
 
-# lua-zlib
-mkdir lua-zlib
-cd lua-zlib
+# lualdap
+\curl -R -L -O http://raw2.github.com/jprjr/lualdap/master/rockspecs/lualdap/lualdap-1.2.0-1.rockspec
+luarocks install ./lualdap-1.2.0-1.rockspec
+rm ./lualdap-1.2.0-1.rockspec
+
+#lua-zlib
 \curl -R -L -O http://raw2.github.com/jprjr/lua-zlib/master/rockspecs/lua-zlib-git/lua-zlib-git-2014.02.19-1.rockspec
 luarocks build ./lua-zlib-git-2014.02.19-1.rockspec
-cd $HOME
-rm -rf lua-zlib
+rm ./lua-zlib-git-2014.02.19-1.rockspec
 
 
 luarocks install luafilesystem
@@ -73,7 +75,7 @@ luarocks install luadbi-sqlite3
 luarocks install luadbi-mysql MYSQL_INCDIR=/usr/include/mysql MYSQL_LIBDIR=/usr/lib64/mysql
 luarocks install luadbi-postgresql
 
-# Workaround for luasec
+# Workaround for luasec rockspec being broken
 luarocks download luasec
 luarocks unpack luasec*.rock
 rm *.rock
@@ -85,25 +87,11 @@ luarocks make
 cd ..
 rm -rf luasec*
 
-# luaevent is not on luarocks
-\curl -R -L -O http://github.com/harningt/luaevent/tarball/3ddb7c8e86a103126b63bd3e385285e0b0781e74
-tar xf 3ddb7c8e86a103126b63bd3e385285e0b0781e74
-rm 3ddb7c8e86a103126b63bd3e385285e0b0781e74
+# luaevent
+\curl -R -L -O http://raw2.github.com/jprjr/luaevent/master/rockspecs/luaevent/luaevent-0.4.3-1.rockspec
+luarocks install ./luaevent-0.4.3-1.rockspec
+rm ./luaevent-0.4.3-1.rockspec
 
-cd harningt-luaevent-3ddb7c8
-LUA_INC_DIR=$lua_incdir INSTALL_DIR_LUA=$lua_shrdir INSTALL_DIR_BIN=$lua_libdir make
-LUA_INC_DIR=$lua_incdir INSTALL_DIR_LUA=$lua_shrdir INSTALL_DIR_BIN=$lua_libdir make install
-cd $HOME
-rm -rf harningt-luaevent-3ddb7c8
-
-# download + patch for shared libraries
-#luasocket
-#luaexapt
-#luaevent
-# lua-zlib
-#luafilesystem
-#luasec
-#luadbi
 # metronome
 \curl -R -L -O http://github.com/maranda/metronome/archive/v${metronome_version}.tar.gz
 tar xf v${metronome_version}.tar.gz
