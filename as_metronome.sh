@@ -109,7 +109,7 @@ rm -rf harningt-luaevent-3ddb7c8
 tar xf v${metronome_version}.tar.gz
 rm v${metronome_version}.tar.gz
 cd metronome-${metronome_version}
-./configure --prefix=${prefix} --datadir=/opt/metronome/var --with-lua=${prefix} --sysconfdir=/opt/metronome/etc
+./configure --prefix=${prefix} --datadir=/opt/metronome/var --with-lua=${prefix} --sysconfdir=/opt/metronome/etc --cflags="-Wall -fPIC -D_GNU_SOURCE"
 make
 make install
 cd $HOME
