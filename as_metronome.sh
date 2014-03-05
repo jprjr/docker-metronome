@@ -6,7 +6,7 @@ lua_version=5.1.5
 lua_name="luajit-"
 luajit_version=2.0.2
 luarocks_version=2.1.2
-metronome_version=3.3
+metronome_version=3.4
 lua_major_rev=${lua_version:0:3}
 
 # now for the libraries and whatnot
@@ -88,24 +88,10 @@ cd ..
 rm -rf luasec*
 
 # luaevent is not on luarocks
-\curl -R -L -O http://github.com/harningt/luaevent/tarball/3ddb7c8e86a103126b63bd3e385285e0b0781e74
-tar xf 3ddb7c8e86a103126b63bd3e385285e0b0781e74
-rm 3ddb7c8e86a103126b63bd3e385285e0b0781e74
+\curl -R -L -O http://raw2.github.com/jprjr/luaevent/master/rockspecs/luaevent/luaevent-0.4.3-1.rockspec
+luarocks install ./luaevent-0.4.3-1.rockspec
+rm ./luaevent-0.4.3-1.rockspec
 
-cd harningt-luaevent-3ddb7c8
-LUA_INC_DIR=$lua_incdir INSTALL_DIR_LUA=$lua_shrdir INSTALL_DIR_BIN=$lua_libdir make
-LUA_INC_DIR=$lua_incdir INSTALL_DIR_LUA=$lua_shrdir INSTALL_DIR_BIN=$lua_libdir make install
-cd $HOME
-rm -rf harningt-luaevent-3ddb7c8
-
-# download + patch for shared libraries
-#luasocket
-#luaexapt
-#luaevent
-# lua-zlib
-#luafilesystem
-#luasec
-#luadbi
 # metronome
 \curl -R -L -O http://github.com/maranda/metronome/archive/v${metronome_version}.tar.gz
 tar xf v${metronome_version}.tar.gz
