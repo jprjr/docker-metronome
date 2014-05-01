@@ -4,9 +4,9 @@ set -x
 
 lua_version=5.1.5
 lua_name="luajit-"
-luajit_version=2.0.2
+luajit_version=2.0.3
 luarocks_version=2.1.2
-metronome_version=3.4
+metronome_version=3.5
 lua_major_rev=${lua_version:0:3}
 
 # now for the libraries and whatnot
