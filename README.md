@@ -1,7 +1,9 @@
-docker-metronome
+docker-metronome (luajit branch)
 =============
 
 This is a small [CentOS](http://www.centos.org/)-based image for [Docker](http://docker.io/), with [Metronome IM](http://www.lightwitch.org/metronome) (an XMPP/Jabber server) installed.
+
+This branch uses LuaJIT instead of Lua, currently version 2.0.3.
 
 This is based on CentOS 6.5 and has `metronome` as the entrypoint.
 

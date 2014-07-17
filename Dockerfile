@@ -1,8 +1,9 @@
-FROM tianon/centos:latest
-# latest is 6.5
+FROM centos:centos6
 MAINTAINER John Regan <john@jrjrtech.com>
 
-RUN yum -y install openssl-devel libevent-devel zlib-devel openldap-devel \
+RUN yum -y --enablerepo=centosplus update && \
+    yum -y --enablerepo=centosplus install \
+    openssl-devel libevent-devel zlib-devel openldap-devel \
     gcc make tar patch readline-devel expat-devel libidn-devel \
     postgresql-devel sqlite-devel mysql-devel unzip
 
