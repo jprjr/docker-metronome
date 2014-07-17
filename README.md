@@ -1,7 +1,9 @@
-docker-metronome
+docker-metronome (lua branch)
 =============
 
 This is a small [CentOS](http://www.centos.org/)-based image for [Docker](http://docker.io/), with [Metronome IM](http://www.lightwitch.org/metronome) (an XMPP/Jabber server) installed.
+
+This branch uses regular Lua, version 5.1.5.
 
 This is based on CentOS 6.5 and has `metronome` as the entrypoint.
 

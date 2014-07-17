@@ -4,7 +4,7 @@ set -x
 
 lua_version=5.1.5
 luarocks_version=2.1.2
-metronome_version=3.5
+metronome_version=3.6
 lua_major_rev=${lua_version:0:3}
 
 # now for the libraries and whatnot
